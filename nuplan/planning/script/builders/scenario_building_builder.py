@@ -16,6 +16,7 @@ def build_scenario_builder(cfg: DictConfig) -> AbstractScenarioBuilder:
     :return: Instance of scenario builder.
     """
     logger.info('Building AbstractScenarioBuilder...')
+    #  (https://hydra.cc/docs/advanced/instantiate_objects/overview/)
     scenario_builder = instantiate(cfg.scenario_builder)
     validate_type(scenario_builder, AbstractScenarioBuilder)
     logger.info('Building AbstractScenarioBuilder...DONE!')

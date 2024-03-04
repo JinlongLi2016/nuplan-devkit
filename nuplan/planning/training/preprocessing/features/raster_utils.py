@@ -77,8 +77,9 @@ def _get_layer_coords(
         lane_ids: the list of ids for the map objects.
     """
     ego_position = Point2D(agent.center.x, agent.center.y)
+    # Extract map objects within the given radius around the point x, y.
     nearest_vector_map = map_api.get_proximal_map_objects(
-        layers=[map_layer_name],
+        layers=[map_layer_name], # on which layer: lane or intersection or ...?
         point=ego_position,
         radius=radius,
     )

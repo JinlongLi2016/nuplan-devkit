@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 class ScenarioDataset(torch.utils.data.Dataset):
     """
     Dataset responsible for consuming scenarios and producing pairs of model inputs/outputs.
+    Scenario Torch.Dataset
     """
 
     def __init__(

@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 class FeaturePreprocessor:
     """
     Compute features and targets for a scenario. This class also manages cache. If a feature/target
-    is not present in a cache, it is computed, otherwise it is loaded
+    is not present in a cache, it is computed, otherwise it is loaded. (feature/target_builder)
     """
 
     def __init__(
@@ -115,7 +115,7 @@ class FeaturePreprocessor:
         :return: computed features/targets and the metadata entries for the computed features/targets
         """
         # Features to be computed
-        all_features: FeaturesType = {}
+        all_features: FeaturesType = {} # {feature_unique_name: computed_feature}
         all_features_metadata_entries: List[CacheMetadataEntry] = []
 
         for builder in builders:

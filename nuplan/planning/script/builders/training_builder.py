@@ -28,7 +28,7 @@ def build_lightning_datamodule(
     cfg: DictConfig, worker: WorkerPool, model: TorchModuleWrapper
 ) -> pl.LightningDataModule:
     """
-    Build the lightning datamodule from the config.
+    Build the lightning datamodule from the config.  # DataModule?
     :param cfg: Omegaconf dictionary.
     :param model: NN model used for training.
     :param worker: Worker to submit tasks which can be executed in parallel.
@@ -47,7 +47,7 @@ def build_lightning_datamodule(
         force_feature_computation=cfg.cache.force_feature_computation,
         feature_builders=feature_builders,
         target_builders=target_builders,
-    )
+    ) # feature_preprocessor.compute_features(scenario) builds <features, targets>
 
     # Create data augmentation
     augmentors = build_agent_augmentor(cfg.data_augmentation) if 'data_augmentation' in cfg else None

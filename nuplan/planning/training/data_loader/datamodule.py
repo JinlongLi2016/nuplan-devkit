@@ -89,7 +89,7 @@ def distributed_weighted_sampler_init(
 
 class DataModule(pl.LightningDataModule):
     """
-    Datamodule wrapping all preparation and dataset creation functionality.
+    Datamodule wrapping all preparation and dataset creation functionality. 包含了所有的准备工作和创建数据集函数
     """
 
     def __init__(
@@ -219,7 +219,10 @@ class DataModule(pl.LightningDataModule):
             )
         else:
             weighted_sampler = None
-
+        
+        # collate
+        # /kəˈleɪt/: 对照，核对，校勘to bring together different pieces of written information so that the similarities and differences can be seen
+        # to collate data/information (核对数据／信息)
         return torch.utils.data.DataLoader(
             dataset=self._train_set,
             shuffle=weighted_sampler is None,

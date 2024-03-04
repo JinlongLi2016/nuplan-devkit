@@ -99,23 +99,26 @@ class AbstractMap(abc.ABC):
         """
         pass
 
+    # near to the centre of the body or to the point of attachment of a bone or muscle
+    # 接近身体中央的;近（骨或肌肉）端的
     @abc.abstractmethod
     def get_proximal_map_objects(
         self, point: Point2D, radius: float, layers: List[SemanticMapLayer]
     ) -> Dict[SemanticMapLayer, List[MapObject]]:
         """
-        Extract map objects within the given radius around the point x, y.
+        Extract map objects within the given radius around the point x, y.(接近Point<X,Y>的对象)
         :param point: [m] x, y coordinates in global frame.
         :param radius [m] floating number about vector map query range.
         :param layers: desired layers to check.
         :return: A dictionary mapping SemanticMapLayers to lists of map objects.
         """
         pass
-
+    
+    # 获取SemanticLayer层
     @abc.abstractmethod
     def get_map_object(self, object_id: str, layer: SemanticMapLayer) -> Optional[MapObject]:
         """
-        Gets the map object with the given object id.
+        Get the map object with the given object id from `layer`.
         :param object_id: desired unique id of a map object that should be extracted.
         :param layer: A semantic layer to query.
         :return: a map object if object corresponding to object_id exists else None.

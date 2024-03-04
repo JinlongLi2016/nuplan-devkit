@@ -65,7 +65,9 @@ def compute_or_load_feature(
                 """
                 )
             )
-        if isinstance(builder, AbstractFeatureBuilder):
+        # if is FeatureBuilder, then get_features_from_scenario(scenario)
+        # elif is TragetBuilder, then get_targets(scenario)
+        if isinstance(builder, AbstractFeatureBuilder): 
             feature = builder.get_features_from_scenario(scenario)
         elif isinstance(builder, AbstractTargetBuilder):
             feature = builder.get_targets(scenario)
